@@ -2,7 +2,7 @@ import {SQS} from 'aws-sdk';
 import {AwsSqs} from './sqs/aws-sqs';
 
 /**
- * Classe responsável por inicializar recursos da Amazon SDK.
+ * Responsável por inicializar recursos da Amazon SDK.
  */
 export class AwsService {
   /**
