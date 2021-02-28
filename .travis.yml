@@ -13,6 +13,7 @@ script:
  - yarn lint
  - yarn test-coverage-upload
  - yarn compile
+ - yarn docs
 
 jobs:
   include:
