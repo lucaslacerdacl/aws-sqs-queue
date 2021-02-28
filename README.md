@@ -8,3 +8,8 @@
 
 ### Documentação TypeDoc:
 [https://lucaslacerdacl.github.io/aws-sqs-queue/](https://lucaslacerdacl.github.io/aws-sqs-queue/)
+
+### Instalação
+```sh
+npm install aws-sqs-queue
+```
