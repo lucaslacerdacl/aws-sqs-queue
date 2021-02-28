@@ -14,9 +14,19 @@ script:
  - yarn test-coverage-upload
  - yarn compile
 
-deploy:
-  provider: npm
-  email: $NPM_EMAIL
-  api_key: $NPM_TOKEN
-  on:
-    branch: main
+jobs:
+  include:
+    - stage: NPM Publish
+      deploy:
+        provider: npm
+        email: $NPM_EMAIL
+        api_key: $NPM_TOKEN
+        on:
+          branch: main
+    - stage: GitHub Release
+      deploy:
+        provider: pages
+        local_dir: docs/
+        github_token: $GITHUB_TOKEN
+        on:
+          branch: master

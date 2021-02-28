@@ -108,3 +108,6 @@ build/
 
 # NPM Deploy
 .npmrc
+
+# TS Docs
+docs
