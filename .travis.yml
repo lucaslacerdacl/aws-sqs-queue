@@ -9,3 +9,8 @@ script:
  - yarn lint
  - yarn test-coverage-upload
  - yarn compile
+
+deploy:
+  provider: npm
+  email: $NPM_EMAIL
+  api_key: $NPM_TOKEN
