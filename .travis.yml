@@ -28,5 +28,6 @@ jobs:
         provider: pages
         local_dir: docs/
         github_token: $GITHUB_TOKEN
+        skip_cleanup: true
         on:
           branch: main
