@@ -1,5 +1,6 @@
 import {SQS} from 'aws-sdk';
 import {AwsSqs} from './sqs/aws-sqs';
+require('dotenv').config();
 
 /**
  * Responsável por inicializar recursos da Amazon SDK.
