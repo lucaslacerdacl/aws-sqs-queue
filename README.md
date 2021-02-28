@@ -5,3 +5,6 @@
 [![Build Status](https://travis-ci.com/lucaslacerdacl/aws-sqs-queue.svg?branch=main)](https://travis-ci.com/lucaslacerdacl/aws-sqs-queue)
 
 > Recurso para envio de mensagens para filas SQS AWS.
+
+### Documentação TypeDoc:
+[https://lucaslacerdacl.github.io/aws-sqs-queue/](https://lucaslacerdacl.github.io/aws-sqs-queue/)
