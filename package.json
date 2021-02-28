@@ -1,6 +1,6 @@
 {
   "name": "aws-sqs-queue",
-  "version": "1.1.1",
+  "version": "1.3.0",
   "repository": "git@github.com:lucaslacerdacl/aws-sqs-queue.git",
   "author": "Lucas <lucaslacerdacl@gmail.com>",
   "license": "MIT",
