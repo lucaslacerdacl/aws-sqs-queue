@@ -26,6 +26,10 @@ export class AwsSqs {
           DataType: 'String',
           StringValue: this.origin,
         },
+        url: {
+          DataType: 'String',
+          StringValue: message.url,
+        },
       },
       MessageBody: JSON.stringify(message.body),
       QueueUrl: message.url,
@@ -45,9 +49,9 @@ export class AwsSqs {
    * Envia uma mensagem para o serviço de SQS da Amazon.
    * @param message Mensagem para ser enviada.
    */
-  async sendMessageToQueue(message: MessageModel): Promise<void> {
+  sendMessageToQueue(message: MessageModel): void {
     const params = this.createMessageParams(message);
 
-    await this.sqs.sendMessage(params).promise();
+    this.sqs.sendMessage(params);
   }
 }
