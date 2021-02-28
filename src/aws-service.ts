@@ -5,6 +5,8 @@ import {AwsSqs} from './sqs/aws-sqs';
  * Responsável por inicializar recursos da Amazon SDK.
  */
 export class AwsService {
+  static AWS_REGION = 'AWS_REGION';
+
   /**
    * Busca pela variável ambiente.
    * @param key Nome da chave a ser buscada no ambiente.
@@ -28,7 +30,7 @@ export class AwsService {
    */
   getSqs(origin: string, apiVersion: string, region?: string): AwsSqs {
     if (!region) {
-      region = this.getValueFromEnv('AWS_REGION');
+      region = this.getValueFromEnv(AwsService.AWS_REGION);
     }
 
     const sqs = new SQS({apiVersion, region});
