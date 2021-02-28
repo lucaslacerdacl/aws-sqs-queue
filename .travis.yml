@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - 14
+
+branches:
+  only:
+    - main
+
+before_script:
+  - yarn
+
+script:
+ - yarn lint
+ - yarn test-coverage-upload
+ - yarn compile
+
+deploy:
+  provider: npm
+  email: $NPM_EMAIL
+  api_key: $NPM_TOKEN
