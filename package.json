@@ -18,7 +18,7 @@
     "test-coverage": "yarn test --coverage",
     "test-coverage-upload": "yarn test-coverage && codecov",
     "publish": "npm publish --access public",
-    "docs": "typedoc src/**/*.ts"
+    "docs": "typedoc src/*.ts src/**/*.ts"
   },
   "dependencies": {
     "@babel/core": "^7.12.16",
