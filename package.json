@@ -1,6 +1,6 @@
 {
   "name": "aws-sqs-queue",
-  "version": "1.15.0",
+  "version": "1.15.1",
   "repository": "git@github.com:lucaslacerdacl/aws-sqs-queue.git",
   "author": "Lucas <lucaslacerdacl@gmail.com>",
   "license": "MIT",
@@ -17,7 +17,6 @@
     "test": "npx jest --runInBand --detectOpenHandles --colors --verbose --reporters=default",
     "test-coverage": "yarn test --coverage",
     "test-coverage-upload": "yarn test-coverage && codecov",
-    "publish": "npm publish --access public",
     "docs": "typedoc src/*.ts src/**/*.ts"
   },
   "dependencies": {
