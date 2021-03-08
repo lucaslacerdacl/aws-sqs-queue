@@ -4,7 +4,7 @@
 [![Code Style: Google](https://img.shields.io/badge/code%20style-google-blueviolet.svg)](https://github.com/google/gts)
 [![Build Status](https://travis-ci.com/lucaslacerdacl/aws-sqs-queue.svg?branch=main)](https://travis-ci.com/lucaslacerdacl/aws-sqs-queue)
 
-> Recurso para envio de mensagens para filas SQS AWS.
+> Recurso para envio de mensagens para filas FIFO SQS AWS.
 
 ### Documentação TypeDoc:
 [https://lucaslacerdacl.github.io/aws-sqs-queue/](https://lucaslacerdacl.github.io/aws-sqs-queue/)

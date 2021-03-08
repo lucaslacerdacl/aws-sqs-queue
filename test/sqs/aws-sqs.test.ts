@@ -53,6 +53,7 @@ describe('AWS Sqs', () => {
       },
       MessageBody: JSON.stringify(message.body),
       QueueUrl: message.url,
+      MessageGroupId: origin,
     });
     expect(mockPromise).toHaveBeenCalled();
   });
