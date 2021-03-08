@@ -49,9 +49,9 @@ export class AwsSqs {
    * Envia uma mensagem para o serviço de SQS da Amazon.
    * @param message Mensagem para ser enviada.
    */
-  sendMessageToQueue(message: MessageModel): void {
+  async sendMessageToQueue(message: MessageModel): Promise<void> {
     const params = this.createMessageParams(message);
 
-    this.sqs.sendMessage(params);
+    await this.sqs.sendMessage(params).promise();
   }
 }
