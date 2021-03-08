@@ -33,6 +33,7 @@ export class AwsSqs {
       },
       MessageBody: JSON.stringify(message.body),
       QueueUrl: message.url,
+      MessageGroupId: this.origin,
     };
 
     return params;
