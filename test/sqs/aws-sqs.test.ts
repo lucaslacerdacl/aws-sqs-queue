@@ -1,6 +1,6 @@
 import {SQS, Request, AWSError} from 'aws-sdk';
 import {Mock} from 'moq.ts';
-import {AwsSqs} from '../../src/sqs/aws-sqs';
+import {AwsSqs} from '../../src/sqs/aws-sqs.service';
 
 describe('AWS Sqs', () => {
   const origin = 'origin-test';

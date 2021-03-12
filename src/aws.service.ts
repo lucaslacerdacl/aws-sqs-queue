@@ -1,5 +1,5 @@
 import {SQS} from 'aws-sdk';
-import {AwsSqs} from './sqs/aws-sqs';
+import {AwsSqs} from './sqs/aws-sqs.service';
 require('dotenv').config();
 
 /**
