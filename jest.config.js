@@ -23,4 +23,5 @@ module.exports = {
   coverageProvider: 'v8',
   testEnvironment: 'node',
   testMatch: ['<rootDir>/test/**/*.test.ts'],
+  collectCoverageFrom: ['src/**/*.service.ts', 'src/*.service.ts'],
 };

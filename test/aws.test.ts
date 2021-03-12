@@ -1,4 +1,4 @@
-import {AwsService} from '../src/aws-service';
+import {AwsService} from '../src/aws.service';
 
 describe('AWS Service', () => {
   const awsService = new AwsService();

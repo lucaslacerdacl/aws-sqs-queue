@@ -1,10 +1,10 @@
 {
   "name": "aws-sqs-queue",
-  "version": "1.17.0",
+  "version": "1.18.0",
   "repository": "git@github.com:lucaslacerdacl/aws-sqs-queue.git",
   "author": "Lucas <lucaslacerdacl@gmail.com>",
   "license": "MIT",
-  "description": "Recurso para envio de mensagens para filas FIFO SQS AWS.",
+  "description": "Recurso para envio de mensagens para filas SQS AWS.",
   "main": "build/src/aws-service.js",
   "files": [
     "build"
@@ -20,12 +20,14 @@
     "docs": "typedoc src/*.ts src/**/*.ts"
   },
   "dependencies": {
+    "@types/node": "^14.11.2",
+    "aws-sdk": "^2.845.0"
+  },
+  "devDependencies": {
     "@babel/core": "^7.12.16",
     "@babel/preset-env": "^7.12.16",
     "@babel/preset-typescript": "^7.12.16",
     "@types/jest": "^26.0.20",
-    "@types/node": "^14.11.2",
-    "aws-sdk": "^2.845.0",
     "babel-jest": "^26.6.3",
     "codecov": "^3.8.1",
     "dotenv": "^8.2.0",
