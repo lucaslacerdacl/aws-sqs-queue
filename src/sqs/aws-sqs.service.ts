@@ -11,7 +11,10 @@ export class AwsSqs {
    * @param message Mensagem para ser formatada.
    * @param groupId Agrupa as mensagens em uma subfila (Obrigatório para filas FIFO).
    */
-  private createMessageParams(message: MessageModel, groupId?: string | undefined): SendMessageRequest {
+  private createMessageParams(
+    message: MessageModel,
+    groupId?: string | undefined
+  ): SendMessageRequest {
     const params = {
       DelaySeconds: 0,
       MessageAttributes: {
@@ -62,7 +65,10 @@ export class AwsSqs {
    * @param message Mensagem para ser enviada.
    * @param messageGroupId Grupo onde a mensagem será adicionada.
    */
-  async sendMessageToQueueFIFO(message: MessageModel, messageGroupId: string): Promise<void> {
+  async sendMessageToQueueFIFO(
+    message: MessageModel,
+    messageGroupId: string
+  ): Promise<void> {
     const params = this.createMessageParams(message, messageGroupId);
 
     await this.sqs.sendMessage(params).promise();
