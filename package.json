@@ -5,7 +5,7 @@
   "author": "Lucas <lucaslacerdacl@gmail.com>",
   "license": "MIT",
   "description": "Recurso para envio de mensagens para filas SQS AWS.",
-  "main": "build/src/aws-service.js",
+  "main": "build/src/index.js",
   "files": [
     "build"
   ],
