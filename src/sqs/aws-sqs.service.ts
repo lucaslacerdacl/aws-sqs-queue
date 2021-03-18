@@ -37,7 +37,7 @@ export class AwsSqs {
       },
       MessageBody: JSON.stringify(message.body),
       QueueUrl: message.url,
-      MessageGroupId: groupId ? groupId : this.origin,
+      MessageGroupId: groupId && groupId,
     };
 
     return params;
