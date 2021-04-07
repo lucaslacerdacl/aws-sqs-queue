@@ -1,6 +1,7 @@
-import {SQS, Request, AWSError} from 'aws-sdk';
-import {Mock} from 'moq.ts';
+import {AWSError, Request, SQS} from 'aws-sdk';
+
 import {AwsSqs} from '../../src/sqs/aws-sqs.service';
+import {Mock} from 'moq.ts';
 
 describe('AWS Sqs', () => {
   const origin = 'origin-test';
@@ -106,30 +107,6 @@ describe('AWS Sqs', () => {
       MessageBody: JSON.stringify(message.body),
       QueueUrl: message.url,
       MessageGroupId: groupId,
-    });
-    expect(mockPromise).toHaveBeenCalled();
-  });
-
-  it('Deleta mensagem de uma fila.', async () => {
-    const mockPromise = jest.fn();
-    const mockRequest = new Mock<Request<SQS.DeleteMessageRequest, AWSError>>();
-    const request = mockRequest
-      .setup(instance => instance.promise)
-      .returns(mockPromise)
-      .object();
-
-    const spyDeleteMessage = jest
-      .spyOn(sqs, 'deleteMessage')
-      .mockImplementation(() => request);
-
-    const queueUrl = 'url';
-    const receiptHandle = '8d84a4b2-306e-4dca-97ff-745b2237f39d';
-
-    await awsSqs.deleteMessage(queueUrl, receiptHandle);
-
-    expect(spyDeleteMessage).toHaveBeenCalledWith({
-      QueueUrl: queueUrl,
-      ReceiptHandle: receiptHandle,
     });
     expect(mockPromise).toHaveBeenCalled();
   });
