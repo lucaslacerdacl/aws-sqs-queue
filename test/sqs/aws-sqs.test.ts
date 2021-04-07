@@ -109,4 +109,42 @@ describe('AWS Sqs', () => {
     });
     expect(mockPromise).toHaveBeenCalled();
   });
+
+  it('Delete lote de mensagens de uma fila.', async () => {
+    const mockPromise = jest.fn();
+    const mockRequest = new Mock<
+      Request<SQS.DeleteMessageBatchResult, AWSError>
+    >();
+    const request = mockRequest
+      .setup(instance => instance.promise)
+      .returns(mockPromise)
+      .object();
+
+    const spyDeleteMessage = jest
+      .spyOn(sqs, 'deleteMessageBatch')
+      .mockImplementation(() => request);
+
+    const batch = {
+      queueUrl: 'url',
+      entries: [
+        {
+          messageId: '16bb1fc3-8ebe-4786-8ccb-7846d08b3c81',
+          receiptHandle: '8d84a4b2-306e-4dca-97ff-745b2237f39d',
+        },
+      ],
+    };
+
+    await awsSqs.deleteMessageBatch(batch);
+
+    expect(spyDeleteMessage).toHaveBeenCalledWith({
+      QueueUrl: batch.queueUrl,
+      Entries: [
+        {
+          Id: batch.entries[0].messageId,
+          ReceiptHandle: batch.entries[0].receiptHandle,
+        },
+      ],
+    });
+    expect(mockPromise).toHaveBeenCalled();
+  });
 });
