@@ -1,11 +1,7 @@
-import {
-  DeleteMessageBatchRequest,
-  SendMessageRequest,
-} from 'aws-sdk/clients/sqs';
+import {SendMessageRequest} from 'aws-sdk/clients/sqs';
 
 import {MessageModel} from './message.model';
 import {SQS} from 'aws-sdk';
-import {BatchModel} from './batch.model';
 
 /**
  * Responsável por gerenciar o serviço de SQS.
@@ -80,34 +76,12 @@ export class AwsSqs {
     await this.sqs.sendMessage(params).promise();
   }
 
-  /**
-   * Formata as mensagens dentro do lote.
-   * @param batch Lote de mensagens.
-   * @returns Parametros formatados a partir da mensagem.
-   */
-  private createBatchDeleteParams(
-    batch: BatchModel
-  ): DeleteMessageBatchRequest {
-    const entries = batch.entries.map(entry => ({
-      Id: entry.messageId,
-      ReceiptHandle: entry.receiptHandle,
-    }));
-
-    const params = {
-      QueueUrl: batch.queueUrl,
-      Entries: entries,
+  async deleteMessage(queueUrl: string, receiptHandle: string): Promise<void> {
+    const deleteModel = {
+      QueueUrl: queueUrl,
+      ReceiptHandle: receiptHandle,
     };
 
-    return params;
-  }
-
-  /**
-   * Deleta o lote de mensagens.
-   * @param batch Lote de mensagens.
-   */
-  async deleteMessageBatch(batch: BatchModel): Promise<void> {
-    const params = this.createBatchDeleteParams(batch);
-
-    await this.sqs.deleteMessageBatch(params).promise();
+    await this.sqs.deleteMessage(deleteModel).promise();
   }
 }
