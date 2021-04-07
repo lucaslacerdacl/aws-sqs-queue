@@ -1,7 +1,6 @@
-import {SendMessageRequest} from 'aws-sdk/clients/sqs';
-
 import {MessageModel} from './message.model';
 import {SQS} from 'aws-sdk';
+import {SendMessageRequest} from 'aws-sdk/clients/sqs';
 
 /**
  * Responsável por gerenciar o serviço de SQS.
@@ -74,14 +73,5 @@ export class AwsSqs {
     const params = this.createMessageParams(message, messageGroupId);
 
     await this.sqs.sendMessage(params).promise();
-  }
-
-  async deleteMessage(queueUrl: string, receiptHandle: string): Promise<void> {
-    const deleteModel = {
-      QueueUrl: queueUrl,
-      ReceiptHandle: receiptHandle,
-    };
-
-    await this.sqs.deleteMessage(deleteModel).promise();
   }
 }
