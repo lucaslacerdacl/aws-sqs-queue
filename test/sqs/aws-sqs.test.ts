@@ -2,6 +2,7 @@ import {AWSError, Request, SQS} from 'aws-sdk';
 
 import {AwsSqs} from '../../src/sqs/aws-sqs.service';
 import {Mock} from 'moq.ts';
+import {RequestModel} from '../../src/sqs/request.model';
 
 describe('AWS Sqs', () => {
   const origin = 'origin-test';
@@ -20,13 +21,14 @@ describe('AWS Sqs', () => {
       .spyOn(sqs, 'sendMessage')
       .mockImplementation(() => request);
 
+    const mockRequestModel = new Mock<RequestModel>().object();
     const message = {
       url: 'https://sqs.url.com',
       module: 'moduleTest',
       method: 'methodTest',
       body: {
-        param1: 'param1',
-        param2: 'param2',
+        content: mockRequestModel,
+        errorCallback: mockRequestModel,
       },
     };
 
@@ -70,13 +72,14 @@ describe('AWS Sqs', () => {
       .spyOn(sqs, 'sendMessage')
       .mockImplementation(() => request);
 
+    const mockRequestModel = new Mock<RequestModel>().object();
     const message = {
       url: 'https://sqs.url.com',
       module: 'moduleTest',
       method: 'methodTest',
       body: {
-        param1: 'param1',
-        param2: 'param2',
+        content: mockRequestModel,
+        errorCallback: mockRequestModel,
       },
     };
 
